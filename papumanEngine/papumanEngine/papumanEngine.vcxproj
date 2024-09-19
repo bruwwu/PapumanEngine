@@ -169,13 +169,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
     <ClCompile Include="BaseApp.cpp" />
     <ClCompile Include="papumanEngine.cpp" />
+    <ClCompile Include="ShapeFactory.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor.h" />
     <ClInclude Include="BaseApp.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Prerequisites.h" />
+    <ClInclude Include="ShapeFactory.h" />
+    <ClInclude Include="TSharedPointer.h" />
+    <ClInclude Include="TStaticPtr.h" />
+    <ClInclude Include="TUniquePtr.h" />
+    <ClInclude Include="TWeakPointer.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

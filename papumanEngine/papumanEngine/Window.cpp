@@ -1,4 +1,4 @@
-#include "Window.h"
+﻿#include "Window.h"
 
 Window::Window(int width, int height, const std::string& title) {
 	m_window = new sf::RenderWindow(sf::VideoMode(width, height), title);

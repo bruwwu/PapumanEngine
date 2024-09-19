@@ -9,23 +9,35 @@
 
 // Third Parties
 #include <SFML/Graphics.hpp>
+#include "TSharedPointer.h"
+#include "TStaticPtr.h"
+#include "TUniquePtr.h"
+#include "TWeakPointer.h"
+
+//Enums
+enum ShapeType {
+    EMPTY = 0,
+    CIRCLE = 0,
+    RECTANGLE = 1,
+    TRIANGLE = 2,
+};
 
 // MACRO for safe release of resources
-#define SAFE_PTR_RELEASE(x) if(x != nullptr) { delete x; x = nullptr; }
+#define SAFEPTR_RELEASE(x) if(x != nullptr) { delete x; x = nullptr; }
 
-#define MESSAGE(classObj, method, state) \
-{ \
-    std::ostringstream os_; \
-    os_ << classObj << "::" << method << ": " \
-        << "[CREATION OF RESOURCE" << ": " << state << "] \\n"; \
-    std::cerr << os_.str(); \
+#define MESSAGE(classObj, method, state)                      \
+{                                                             \
+    std::ostringstream os;                                   \
+    os << classObj << "::" << method << " : "                \
+        << "[CREATION OF RESOURCE" << ": " << state "] \n";\
+    std::cerr << os.str();                                   \
 }
 
-#define ERROR(classObj, method, errorMSG) \
-{ \
-    std::ostringstream os_; \
-    os_ << "ERROR : " << classObj << "::" << method << ": " \
-        << "Error in data from params [" << errorMSG << "] \\n"; \
-    std::cerr << os_.str(); \
-    exit(1); \
+#define ERROR(classObj, method, errorMSG, ptr)                         \
+{                                                                 \
+    std::ostringstream os;                                       \
+    os << "ERROR : " << classObj << "::" << method << " : "      \
+        << "  Error in data from params [" << errorMSG"] \n"; \
+    std::cerr << os_.str();                                       \
+    exit(1);                                                      \
 }

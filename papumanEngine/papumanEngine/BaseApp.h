@@ -29,5 +29,5 @@ public:
 
 private:
 	Window* m_window;
-	sf::CircleShape* shape;
+	//sf::CircleShape* shape;
 };

@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de encabezado\Memory">
+      <UniqueIdentifier>{962edad5-f14e-41b0-bcc8-01fe4934f8b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\ECS">
+      <UniqueIdentifier>{394d8c55-4a3e-4e03-ab70-0a21ce80adff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\ECS">
+      <UniqueIdentifier>{d486e739-bd98-4ecd-bb7f-317b757afb66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="papumanEngine.cpp">
@@ -24,6 +33,12 @@
     <ClCompile Include="BaseApp.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="ShapeFactory.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Archivos de origen\ECS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Prerequisites.h">
@@ -34,6 +49,30 @@
     </ClInclude>
     <ClInclude Include="Window.h">
       <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeFactory.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="TSharedPointer.h">
+      <Filter>Archivos de encabezado\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="TStaticPtr.h">
+      <Filter>Archivos de encabezado\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="TUniquePtr.h">
+      <Filter>Archivos de encabezado\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="TWeakPointer.h">
+      <Filter>Archivos de encabezado\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
