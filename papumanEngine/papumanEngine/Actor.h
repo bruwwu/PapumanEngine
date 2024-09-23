@@ -3,41 +3,42 @@
 #include "Entity.h"
 #include "ShapeFactory.h"
 
-class Actor : Entity{
-public: 
+class Actor : Entity {
+public:
 
 	Actor() = default;
 
-    Actor(std::string actorName);
+	Actor(std::string actorName);
 
 	virtual ~Actor() = default;
-	
+
 	void update(float deltaTime) override;
 
 	void render(Window window) override; // @param window Contexto del dispositivo para operaciones gráficas.
 
 	void destroy(); // @brief Destruye el actor y libera los recursos asociados.
 
-// @brief Obtiene un componente específico del actor.
-// @param T Tipo del componente que se va a obtener.
-// @return Puntero compartido al componente, o nullptr si no se encuentra.
+	// @brief Obtiene un componente específico del actor.
+	// @param T Tipo del componente que se va a obtener.
+	// @return Puntero compartido al componente, o nullptr si no se encuentra.
 	template <typename T>
-	EngineUtilities::TSharedPointer<T> getComponent(); //Llamar una funcion InLine :p
+	EngineUtilities::TSharedPointer<T>
+		getComponent(); //Llamar una funcion InLine :p
 
 private:
-	std :: string m_name = "Actor"; //Nombre del actor
+	std::string m_name = "Actor"; //Nombre del actor
 
-    template<typename T>
-    inline EngineUtilities::TSharedPointer<T>
-        Actor::getComponent() {
-        for (auto& component : components)
-        {
-            EngineUtilities::TSharedPointer<T> specificComponent = std::dynamic_pointer_cast<T>(component);
-            if (specificComponent)
-            {
-                return specificComponent;
-            }
-        }
-        return nullptr;
-    }
+
 };
+template<typename T>
+inline EngineUtilities::TSharedPointer<T>
+Actor::getComponent() {
+	for (auto& component : components) {
+		EngineUtilities::TSharedPointer<T> specificComponent = component.template dynamic_pointer_cast<T>();
+		if (specificComponent) {
+			return specificComponent;
+		}
+	}
+	// Devuelve un TSharedPointer vacío si no se encuentra el componente
+	return EngineUtilities::TSharedPointer<T>();
+}

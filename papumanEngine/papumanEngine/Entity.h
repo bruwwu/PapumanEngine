@@ -19,27 +19,25 @@ public:
     template<typename T>
     void
         addComponent(EngineUtilities::TSharedPointer<T> component) {
-        static_addert(std::is_base_of<Component, T>::value, "T must be derived from Component");
-        components.push_back(component);
+        static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
+        components.push_back(component.template dynamic_pointer_cast<Component>());
     }
 
     template<typename T>
     EngineUtilities::TSharedPointer<T>
         getComponent() {
-        for (auto& component : components)
-        {
-            EngineUtilities::TSharedPointer<T> specificComponent = std::dynamic_pointer_cast<T>(component);
-            if (specificComponent)
-            {
+        for (auto& component : components) {
+            EngineUtilities::TSharedPointer<T> specificComponent = component.template dynamic_pointer_cast<T>();
+            if (specificComponent) {
                 return specificComponent;
             }
         }
-        return nullptr;
+        return EngineUtilities::TSharedPointer<T>();
     }
 
 protected:
     bool isActive;
     int id;
-    std::vector<EngineUtilities::TSharedPointer<Component>> component;
+    std::vector<EngineUtilities::TSharedPointer<Component>> components;
 
 };

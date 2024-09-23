@@ -1,6 +1,7 @@
 #pragma once
 #include "Prerequisites.h"
 #include "Window.h"
+#include "Actor.h"
 
 class
 	BaseApp {
@@ -13,7 +14,7 @@ public:
 		run();
 
 	// Funcion de inicializacion
-	void
+	bool
 		initialize();
 
 	// Funcion que se actualiza por frame
@@ -29,5 +30,6 @@ public:
 
 private:
 	Window* m_window;
-	//sf::CircleShape* shape;
+	sf::CircleShape* shape;
+	EngineUtilities::TSharedPointer<Actor> Triangle;
 };

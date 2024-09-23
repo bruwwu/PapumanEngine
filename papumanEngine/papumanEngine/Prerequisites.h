@@ -11,15 +11,15 @@
 #include <SFML/Graphics.hpp>
 #include "TSharedPointer.h"
 #include "TStaticPtr.h"
-#include "TUniquePtr.h"
+//#include "TUniquePtr.h"
 #include "TWeakPointer.h"
 
 //Enums
 enum ShapeType {
-    EMPTY = 0,
-    CIRCLE = 0,
-    RECTANGLE = 1,
-    TRIANGLE = 2,
+    NONE = 0,
+    CIRCLE = 1,
+    RECTANGLE = 2,
+    TRIANGLE = 3,
 };
 
 // MACRO for safe release of resources
@@ -38,6 +38,6 @@ enum ShapeType {
     std::ostringstream os;                                       \
     os << "ERROR : " << classObj << "::" << method << " : "      \
         << "  Error in data from params [" << errorMSG"] \n"; \
-    std::cerr << os_.str();                                       \
+    std::cerr << os.str();                                       \
     exit(1);                                                      \
 }

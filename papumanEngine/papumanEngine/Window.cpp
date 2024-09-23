@@ -79,5 +79,5 @@ Window::getWindow() {
 
 void
 Window::destroy() {
-	SAFE_PTR_RELEASE(m_window);
+	SAFEPTR_RELEASE(m_window);
 }

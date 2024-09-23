@@ -1,14 +1,24 @@
 #include "Actor.h"
 
-
 Actor::Actor(std::string actorName) {
-	//Setup actorName
+	// Setup Actor Name
 	m_name = actorName;
-	//Setup Transform
+	// Setup Shape
+	EngineUtilities::TSharedPointer<ShapeFactory> shape = EngineUtilities::MakeShared<ShapeFactory>();
+	addComponent(shape);
+	// Setup Transform
 
-	//SetupShape
-	EngineUtilities::TSharedPointer<ShapeFactory> shape = EngineUtilities::MakeShared<ShapeFactory>();{
-		addComponent(shape);
-	}
+	// Setup Sprite
+}
 
+void Actor::update(float deltaTime)
+{
+}
+
+void Actor::render(Window window)
+{
+}
+
+void Actor::destroy()
+{
 }
