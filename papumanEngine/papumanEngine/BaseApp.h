@@ -29,7 +29,12 @@ public:
 		cleanup();
 
 private:
+	sf::Time deltaTime;
+	sf::Clock clock;
+
+
 	Window* m_window;
 	sf::CircleShape* shape;
 	EngineUtilities::TSharedPointer<Actor> Triangle;
+	EngineUtilities::TSharedPointer<Actor> Circle;
 };

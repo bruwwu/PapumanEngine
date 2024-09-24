@@ -35,6 +35,7 @@ BaseApp::run() {
 	}
 	while (m_window->isOpen()) {
 		m_window->handleEvents();
+		deltaTime = clock.restart();
 		update();
 		render();
 	}
@@ -57,8 +58,16 @@ BaseApp::initialize() {
 		return false;
 	}
 
-	shape->setFillColor(sf::Color::Blue);
-	shape->setPosition(200.0f, 200.0f);
+
+	// Triangle Actor
+	Circle = EngineUtilities::MakeShared<Actor>("Circle");
+	if (!Circle.isNull()) {
+		Circle->getComponent<ShapeFactory>()->createShape(ShapeType::CIRCLE);
+		Circle->getComponent<ShapeFactory>()->setPosition(200.0f, 200.0f);
+		Circle->getComponent<ShapeFactory>()->setFillColor(sf::Color::Blue);
+	}
+
+
 
 	// Triangle Actor
 	Triangle = EngineUtilities::MakeShared<Actor>("Triangle");
@@ -71,6 +80,17 @@ BaseApp::initialize() {
 
 void
 BaseApp::update() {
+
+	sf::Vector2i mousePosition = sf::Mouse::getPosition(*m_window->getWindow());
+	sf::Vector2f mousePosF(static_cast<float>(mousePosition.x), 
+							static_cast<float>(mousePosition.y));
+
+	if (!Circle.isNull()) {
+		Circle->getComponent<ShapeFactory>()->Seek(mousePosF, 
+													200.0f, 
+													deltaTime.asSeconds(), 
+													10.0f);
+	}
 }
 
 void
@@ -78,8 +98,12 @@ BaseApp::render() {
 	m_window->clear();
 	m_window->draw(*shape);
 	if (!Triangle.isNull()) {
-		m_window->draw(*Triangle->getComponent<ShapeFactory>()->getShape());
+		Triangle->render(*m_window);
 	}
+	if (!Circle.isNull()) {
+		Circle->render(*m_window);
+	}
+	
 	m_window->display();
 }
 

@@ -14,7 +14,7 @@ public:
     virtual void
         update(float deltaTime) = 0;
     virtual void
-        render(Window window) = 0;
+        render(Window& window) = 0;
 
     template<typename T>
     void

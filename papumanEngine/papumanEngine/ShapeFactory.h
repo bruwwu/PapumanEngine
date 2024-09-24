@@ -17,6 +17,20 @@ public:
 
 	void update(float detlatime) override {}
 
+
+	void setPosition(float x, float y);
+
+	void setFillColor(const sf::Color& color);
+
+
+	void setPosition(const sf::Vector2f& position);
+
+	void Seek(const sf::Vector2f& targetPosition,
+		float speed,
+		float deltaTime,
+		float range);
+
+
 	void
 		render(Window window) override {}
 

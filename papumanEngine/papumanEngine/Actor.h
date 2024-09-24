@@ -14,7 +14,7 @@ public:
 
 	void update(float deltaTime) override;
 
-	void render(Window window) override; // @param window Contexto del dispositivo para operaciones gráficas.
+	void render(Window& window) override; // @param window Contexto del dispositivo para operaciones gráficas.
 
 	void destroy(); // @brief Destruye el actor y libera los recursos asociados.
 

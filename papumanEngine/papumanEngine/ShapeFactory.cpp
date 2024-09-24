@@ -31,3 +31,40 @@ sf::Shape* ShapeFactory::createShape(ShapeType shapeType) {
         return nullptr;
     }
 }
+
+void
+ShapeFactory::setPosition(float x, float y) {
+    m_shape->setPosition(x, y);
+}
+
+void
+ShapeFactory::setFillColor(const sf::Color& color) {
+    m_shape->setFillColor(color);
+
+}
+void
+ShapeFactory::setPosition(const sf::Vector2f& position) {
+    m_shape->setPosition(position);
+}
+void ShapeFactory::Seek(const sf::Vector2f& targetPosition,
+    float speed,
+    float deltaTime,
+    float range) {
+
+    //obtener la posicion actual de la shape sea la que sea
+    sf::Vector2f shapePosition = m_shape->getPosition();
+
+
+    //Calcular la direccion desde el circulo hacia el objetivo
+    sf::Vector2f direction = targetPosition - shapePosition;
+
+
+    //Calcular distacnia al objectivo
+    float length = std::sqrt(direction.x * direction.x + direction.y * direction.y);
+
+    //Si la distancia es mayor al rango, moever la shape al objetivo
+    if (length > range) {
+        direction /= length;
+        m_shape->move(direction * speed * deltaTime);
+    }
+}
