@@ -31,7 +31,7 @@
 int
 BaseApp::run() {
 	if (!initialize()) {
-		ERROR("BaseApp", "run", "Initializes result on a false statemente, check method validations");
+		ERROR("BaseApp", "run", "Initializes result on a false statement, check method validations");
 	}
 	while (m_window->isOpen()) {
 		m_window->handleEvents();
@@ -59,7 +59,7 @@ BaseApp::initialize() {
 	}
 
 
-	// Triangle Actor
+	// Circle Actor
 	Circle = EngineUtilities::MakeShared<Actor>("Circle");
 	if (!Circle.isNull()) {
 		Circle->getComponent<ShapeFactory>()->createShape(ShapeType::CIRCLE);
@@ -80,16 +80,8 @@ BaseApp::initialize() {
 
 void
 BaseApp::update() {
-
-	sf::Vector2i mousePosition = sf::Mouse::getPosition(*m_window->getWindow());
-	sf::Vector2f mousePosF(static_cast<float>(mousePosition.x), 
-							static_cast<float>(mousePosition.y));
-
 	if (!Circle.isNull()) {
-		Circle->getComponent<ShapeFactory>()->Seek(mousePosF, 
-													200.0f, 
-													deltaTime.asSeconds(), 
-													10.0f);
+		MoveCircle(deltaTime.asSeconds(), Circle);
 	}
 }
 
@@ -103,7 +95,7 @@ BaseApp::render() {
 	if (!Circle.isNull()) {
 		Circle->render(*m_window);
 	}
-	
+
 	m_window->display();
 }
 
@@ -112,4 +104,37 @@ BaseApp::cleanup() {
 	m_window->destroy();
 	delete m_window;
 	delete shape;
+}
+
+void
+BaseApp::MoveCircle(float deltaTime, EngineUtilities::TSharedPointer<Actor> circle) {
+
+	if (!circle || circle.isNull()) return;
+	// Definir los waypoints
+	static sf::Vector2f wayPoints[4] = {
+		sf::Vector2f(100.0f, 100.0f),
+		sf::Vector2f(200.0f, 100.0f),
+		sf::Vector2f(200.0f, 200.0f),
+		sf::Vector2f(100.0f, 200.0f)
+	};
+
+	static int currentPoint = 0;  // Guardar el índice actual del waypoint entre frames
+
+	// Obtener la posición actual del círculo
+	sf::Vector2f currentPos = Circle->getComponent<ShapeFactory>()->getShape()->getPosition();
+
+	// Calcular la distancia entre el waypoint actual y la posición del círculo
+	sf::Vector2f direction = wayPoints[currentPoint] - currentPos;
+	float distance = std::sqrt(direction.x * direction.x + direction.y * direction.y);
+
+	// Mover el círculo hacia el waypoint actual
+	Circle->getComponent<ShapeFactory>()->Seek(wayPoints[currentPoint],
+		200.0f,  // Velocidad
+		deltaTime,
+		10.0f);
+
+	// Cambiar al siguiente waypoint si el círculo está dentro del rango de 10 unidades
+	if (distance < 10.0f) {
+		currentPoint = (currentPoint + 1) % 4;
+	}
 }
