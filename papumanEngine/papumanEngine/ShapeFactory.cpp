@@ -47,9 +47,9 @@ ShapeFactory::setPosition(const sf::Vector2f& position) {
     m_shape->setPosition(position);
 }
 void ShapeFactory::Seek(const sf::Vector2f& targetPosition,
-    float speed,
-    float deltaTime,
-    float range) {
+                                            float speed,
+                                            float deltaTime,
+                                            float range) {
 
     //obtener la posicion actual de la shape sea la que sea
     sf::Vector2f shapePosition = m_shape->getPosition();

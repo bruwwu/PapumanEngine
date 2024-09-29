@@ -46,7 +46,7 @@ BaseApp::run() {
 
 bool
 BaseApp::initialize() {
-	m_window = new Window(800, 600, "Galvan Engine");
+	m_window = new Window(800, 600, "Papuman Engine");
 	if (!m_window) {
 		ERROR("BaseApp", "initialize", "Error on window creation, var is null");
 		return false;
@@ -80,9 +80,15 @@ BaseApp::initialize() {
 
 void
 BaseApp::update() {
-	if (!Circle.isNull()) {
-		MoveCircle(deltaTime.asSeconds(), Circle);
-	}
+
+	//sf::Vector2i mousePosition = sf::Mouse::getPosition(*m_window->getWindow());
+	//sf::Vector2f mousePosF(static_cast<float>(mousePosition.x),
+							//static_cast<float>(mousePosition.y));
+
+
+		if (!Circle.isNull()) {
+			MoveCircle(deltaTime.asSeconds(), Circle);
+		}
 }
 
 void
