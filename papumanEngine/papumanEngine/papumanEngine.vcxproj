@@ -96,7 +96,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -116,7 +116,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -135,7 +135,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -155,7 +155,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -169,24 +169,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Actor.cpp" />
-    <ClCompile Include="BaseApp.cpp" />
-    <ClCompile Include="papumanEngine.cpp" />
-    <ClCompile Include="ShapeFactory.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="src\Actor.cpp" />
+    <ClCompile Include="src\BaseApp.cpp" />
+    <ClCompile Include="src\papumanEngine.cpp" />
+    <ClCompile Include="src\ShapeFactory.cpp" />
+    <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Actor.h" />
-    <ClInclude Include="BaseApp.h" />
-    <ClInclude Include="Component.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="Prerequisites.h" />
-    <ClInclude Include="ShapeFactory.h" />
-    <ClInclude Include="TSharedPointer.h" />
-    <ClInclude Include="TStaticPtr.h" />
-    <ClInclude Include="TUniquePtr.h" />
-    <ClInclude Include="TWeakPointer.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="incl\Actor.h" />
+    <ClInclude Include="incl\BaseApp.h" />
+    <ClInclude Include="incl\Component.h" />
+    <ClInclude Include="incl\Entity.h" />
+    <ClInclude Include="incl\Memory\TSharedPointer.h" />
+    <ClInclude Include="incl\Memory\TStaticPtr.h" />
+    <ClInclude Include="incl\Memory\TUniquePtr.h" />
+    <ClInclude Include="incl\Memory\TWeakPointer.h" />
+    <ClInclude Include="incl\Prerequisites.h" />
+    <ClInclude Include="incl\ShapeFactory.h" />
+    <ClInclude Include="incl\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,10 +9,10 @@
 
 // Third Parties
 #include <SFML/Graphics.hpp>
-#include "TSharedPointer.h"
-#include "TStaticPtr.h"
+#include "Memory/TSharedPointer.h"
+#include "Memory/TStaticPtr.h"
 //#include "TUniquePtr.h"
-#include "TWeakPointer.h"
+#include "Memory/TWeakPointer.h"
 
 //Enums
 enum ShapeType {
