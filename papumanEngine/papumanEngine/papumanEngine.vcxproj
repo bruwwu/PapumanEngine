@@ -96,7 +96,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\imgui-sfml-2.6.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -104,7 +104,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies> sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\lib;lib;$(SolutionDir)lib/$(PlatformTarget)/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -116,7 +116,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\imgui-sfml-2.6.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -125,7 +125,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies> sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\lib;lib;$(SolutionDir)lib/$(PlatformTarget)/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -135,7 +135,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\imgui-sfml-2.6.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -143,7 +143,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies> sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\lib;lib;$(SolutionDir)lib/$(PlatformTarget)/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -155,7 +155,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./include/;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\include;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\papumanEngine\papumanEngine\incl;C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\imgui-sfml-2.6.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -164,11 +164,17 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies> sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\bruwu\OneDrive\Documentos\GitHub\UIProyect\PapumanEngine\ThirdParties\SFML-2.6.1\lib;lib;$(SolutionDir)lib/$(PlatformTarget)/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui-SFML.cpp" />
+    <ClCompile Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui.cpp" />
+    <ClCompile Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui_demo.cpp" />
+    <ClCompile Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui_draw.cpp" />
+    <ClCompile Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui_tables.cpp" />
+    <ClCompile Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui_widgets.cpp" />
     <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\BaseApp.cpp" />
     <ClCompile Include="src\papumanEngine.cpp" />
@@ -176,6 +182,16 @@
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imconfig-SFML.h" />
+    <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imconfig.h" />
+    <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui-SFML.h" />
+    <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui-SFML_export.h" />
+    <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui.h" />
+    <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui_internal.h" />
+    <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imstb_rectpack.h" />
+    <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imstb_textedit.h" />
+    <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imstb_truetype.h" />
     <ClInclude Include="incl\Actor.h" />
     <ClInclude Include="incl\BaseApp.h" />
     <ClInclude Include="incl\Component.h" />
@@ -186,6 +202,7 @@
     <ClInclude Include="incl\Memory\TWeakPointer.h" />
     <ClInclude Include="incl\Prerequisites.h" />
     <ClInclude Include="incl\ShapeFactory.h" />
+    <ClInclude Include="incl\Transform.h" />
     <ClInclude Include="incl\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

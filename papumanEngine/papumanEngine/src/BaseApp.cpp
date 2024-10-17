@@ -94,15 +94,20 @@ BaseApp::update() {
 void
 BaseApp::render() {
 	m_window->clear();
-	m_window->draw(*shape);
-	if (!Triangle.isNull()) {
-		Triangle->render(*m_window);
-	}
 	if (!Circle.isNull()) {
 		Circle->render(*m_window);
 	}
+	if (!Triangle.isNull()) {
+		Triangle->render(*m_window);
+	}
 
+	ImGui::Begin("Hello, world!");
+	ImGui::Text("This is a simple example.");
+	ImGui::End();
+
+	m_window->render();
 	m_window->display();
+
 }
 
 void

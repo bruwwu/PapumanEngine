@@ -26,7 +26,7 @@ public:
 	/**
 	 * @brief Verifica si la ventana sigue abierta.
 	 *
-	 * @return true si la ventana est� abierta, false en caso contrario.
+	 * @return true si la ventana está abierta, false en caso contrario.
 	 */
 	bool
 		isOpen() const;
@@ -64,4 +64,8 @@ public:
 
 private:
 	sf::RenderWindow* m_window;
+	sf::View m_view;
+public:
+	sf::Time deltaTime;
+	sf::Clock clock;
 };
