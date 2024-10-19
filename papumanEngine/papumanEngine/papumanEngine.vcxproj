@@ -205,6 +205,9 @@
     <ClInclude Include="incl\Transform.h" />
     <ClInclude Include="incl\Window.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\..\..\Downloads\darkhec.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

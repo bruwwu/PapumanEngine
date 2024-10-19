@@ -2,7 +2,7 @@
 class Window;
 
 enum ComponentType {
-    EMPTY = 0,
+    NONE = 0,
     TRANSFORM = 1,
     SPRITE = 2,
     RENDERER = 3,

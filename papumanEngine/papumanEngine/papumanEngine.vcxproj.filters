@@ -25,6 +25,9 @@
     <Filter Include="imgui">
       <UniqueIdentifier>{87920c98-f10c-43c8-8540-816716bd2f09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de recursos\Image">
+      <UniqueIdentifier>{89aaf6d3-9d6d-4fb6-a70b-551c93c216e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Actor.cpp">
@@ -95,9 +98,6 @@
     <ClInclude Include="incl\BaseApp.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="incl\Transform.h">
-      <Filter>Archivos de encabezado\ECS</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imconfig.h">
       <Filter>imgui</Filter>
     </ClInclude>
@@ -128,5 +128,13 @@
     <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imstb_truetype.h">
       <Filter>imgui</Filter>
     </ClInclude>
+    <ClInclude Include="incl\Transform.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\..\..\Downloads\darkhec.png">
+      <Filter>Archivos de recursos\Image</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -111,5 +111,5 @@ void Window::render()
 void
 Window::destroy() {
 	ImGui::SFML::Shutdown();
-	SAFEPTR_RELEASE(m_window);
+	SAFE_PTR_RELEASE(m_window);
 }

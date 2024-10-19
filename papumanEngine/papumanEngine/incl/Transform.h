@@ -3,57 +3,79 @@
 #include "Component.h"
 #include "Window.h"
 
-class 
-	Transform : public Component {
+class
+    Transform : public Component {
 public:
-	Transform() : position(0.0f, 0.0f),
-                rotation(0.0f, 0.0f), 
-                scale(1.0f, 1.0f), 
-                Component(ComponentType::TRANSFORM) {}
-	virtual
-		~Transform() = default;
+    Transform() : position(0.0f, 0.0f),
+        rotation(0.0f, 0.0f),
+        scale(1.0f, 1.0f),
+        Component(ComponentType::TRANSFORM) {}
 
-	void
-		update(float deltaTime) override{}
+    virtual
+        ~Transform() = default;
 
-	void
-	render(Window window){}
-	
-	void
-		destroy(){}
+    /**
+   * @brief Actualiza el componente de malla.
+   * @param deltaTime El tiempo transcurrido desde la última actualización.
+   */
+    void
+        update(float deltaTime) override {}
 
-	void
-		setRotation(const sf::Vector2f& _rotation) {
-		rotation = _rotation;
-	}
+    /**
+     * @brief Renderiza el componente de malla.
+     * @param deviceContext Contexto del dispositivo para operaciones gráficas.
+     */
+    void
+        render(Window window) override {}
 
-	void
-		setScale(const sf::Vector2f& _scale) {
-		scale = _scale;
-	}
+    void
+        destroy() {};
 
-	void
-		setPosition(const sf::Vector2f& _position) {
-		position = _position;
-	}
+    void
+        Seek(const sf::Vector2f& targetPosition,
+            float speed,
+            float deltaTime,
+            float range) {
+        sf::Vector2f direction = targetPosition - position;
+        float length = std::sqrt(direction.x * direction.x + direction.y * direction.y);
 
-	sf::Vector2f&
-		getPosition() {
-		return position;
-	}
+        if (length > range) {
+            direction /= length;  // Normaliza el vector
+            position += direction * speed * deltaTime;
+        }
+    }
 
-	sf::Vector2f&
-		getRotation() {
-		return rotation;
-	}
+    void
+        setPosition(const sf::Vector2f& _position) {
+        position = _position;
+    }
 
-	sf::Vector2f&
-		getScale() {
-		return scale;
-	}
+    void
+        setRotation(const sf::Vector2f& _rotation) {
+        rotation = _rotation;
+    }
 
+    void
+        setScale(const sf::Vector2f& _scale) {
+        scale = _scale;
+    }
+
+    sf::Vector2f&
+        getPosition() {
+        return position;
+    }
+
+    sf::Vector2f&
+        getRotation() {
+        return rotation;
+    }
+
+    sf::Vector2f&
+        getScale() {
+        return scale;
+    }
 private:
-	sf::Vector2f position;
-	sf::Vector2f rotation;
-	sf::Vector2f scale;
+    sf::Vector2f position;  // Posición del objeto
+    sf::Vector2f rotation;  // Rotación del objeto
+    sf::Vector2f scale;     // Escala del objeto
 };

@@ -20,14 +20,14 @@
 
 //Enums
 enum ShapeType {
-    NONE = 0,
+    EMPTY = 0,
     CIRCLE = 1,
     RECTANGLE = 2,
     TRIANGLE = 3,
 };
 
 // MACRO for safe release of resources
-#define SAFEPTR_RELEASE(x) if(x != nullptr) { delete x; x = nullptr; }
+#define SAFE_PTR_RELEASE(x) if(x != nullptr) { delete x; x = nullptr; }
 
 #define MESSAGE(classObj, method, state)                      \
 {                                                             \

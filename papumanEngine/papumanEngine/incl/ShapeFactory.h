@@ -7,39 +7,41 @@ class
 	ShapeFactory : public Component {
 public:
 	ShapeFactory() = default;
-	virtual
-	~ShapeFactory() = default;
 
-	ShapeFactory(ShapeType shapeType) : m_shape(nullptr), m_shapeType(ShapeType::NONE), Component(ComponentType::SHAPE){}
+	virtual
+		~ShapeFactory() = default;
+
+	ShapeFactory(ShapeType shapeType) :
+		m_shape(nullptr), m_shapeType(ShapeType::EMPTY), Component(ComponentType::SHAPE) {}
 
 	sf::Shape*
-	createShape(ShapeType shapeType);
-
-	void update(float detlatime) override {}
-
-
-	void setPosition(float x, float y);
-
-	void setFillColor(const sf::Color& color);
-
-
-	void setPosition(const sf::Vector2f& position);
-
-	void Seek(const sf::Vector2f& targetPosition,
-		float speed,
-		float deltaTime,
-		float range);
-
+		createShape(ShapeType shapeType);
+	void
+		update(float deltaTime) override {}
 
 	void
 		render(Window window) override {}
 
-	sf::Shape* getShape() {
+	void
+		setPosition(float x, float y);
+
+	void
+		setPosition(const sf::Vector2f& position);
+
+	void
+		setFillColor(const sf::Color& color);
+
+	void
+		setRotation(float angle);
+
+	void
+		setScale(const sf::Vector2f& scl);
+
+	sf::Shape*
+		getShape() {
 		return m_shape;
 	}
 private:
-
-	ShapeType m_shapeType;
-public:
 	sf::Shape* m_shape;
+	ShapeType m_shapeType;
 };
