@@ -17,7 +17,7 @@ BaseApp::run() {
 
 bool
 BaseApp::initialize() {
-	m_window = new Window(800, 600, "Galvan Engine");
+	m_window = new Window(800, 600, "Papuman Engine");
 	if (!m_window) {
 		ERROR("BaseApp", "initialize", "Error on window creation, var is null");
 		return false;
@@ -33,7 +33,8 @@ BaseApp::initialize() {
 		Track->getComponent<Transform>()->setRotation(sf::Vector2f(0.0f, 0.0f));
 		Track->getComponent<Transform>()->setScale(sf::Vector2f(11.0f, 12.0f));
 
-		if (!texture.loadFromFile("Circuit.png")) {
+		
+		if (!texture.loadFromFile("darkhec.png")) {
 			std::cout << "Error de carga de textura" << std::endl;
 			return -1; // Manejar error de carga
 		}
@@ -101,6 +102,7 @@ BaseApp::render() {
 
 	ImGui::Begin("Hello, world!");
 	ImGui::Text("This is a simple example.");
+	ImGui::Image(texture);
 	ImGui::End();
 
 	m_window->render();

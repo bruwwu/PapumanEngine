@@ -9,7 +9,7 @@ ShapeFactory::createShape(ShapeType shapeType) {
 	}
 	case CIRCLE: {
 		sf::CircleShape* circle = new sf::CircleShape(10.0f);
-		circle->setFillColor(sf::Color::White);
+		circle->setFillColor(sf::Color::Black);
 		m_shape = circle;
 		return circle;
 	}
