@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "ShapeFactory.h"
 #include "Actor.h"
+#include "GUI.h"
 
 class
 	BaseApp {
@@ -32,6 +33,8 @@ public:
 	void
 		MoveCircle(float deltaTime, EngineUtilities::TSharedPointer<Actor> circle);
 
+
+
 private:
 
 
@@ -43,17 +46,23 @@ private:
 	// Seek Activity
 	int currentWaypoint = 0;
 
-	std::vector<sf::Vector2f> waypoints = {
-		{720.0f, 350.0f},
-		{720.0f, 260.0f},
-		{125.0f, 50.0f},
-		{70.0f, 120.0f},
-		{70.0f, 450.0f},
-		{400.0f, 350.0f},
-		{550.0f, 500.0f},
-		{650.0f, 550.0f},
-		{720.0f, 450.0f}
-	};
-
+		std::vector<sf::Vector2f> waypoints = {
+		{80.0f, 350.0f},
+		{80.0f, 555.0f},
+		{900.0f, 555.0f}, // Punto más alto
+		{900.0f, 350.0f},
+		{750.0f, 350.0f}, // Bajada
+		{750.0f, 260.0f},
+		{900.0f, 260.0f}, // Bajada
+		{900.0f, 45.0f},
+		{580.0f, 45.0f},
+		{550.0f, 150.0f},
+		{390.0f, 150.0f},
+		{390.0f, 45.0f},
+		{80.0f, 45.0f},
+		 // Punto más bajo
+		};
 	sf::Texture texture;
+	sf::Texture DamBolaTxt;
+	GUI m_GUI;
 };

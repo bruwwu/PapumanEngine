@@ -5,6 +5,8 @@ BaseApp::run() {
 	if (!initialize()) {
 		ERROR("BaseApp", "run", "Initializes result on a false statemente, check method validations");
 	}
+	m_GUI.init();
+
 	while (m_window->isOpen()) {
 		m_window->handleEvents();
 		update();
@@ -17,7 +19,7 @@ BaseApp::run() {
 
 bool
 BaseApp::initialize() {
-	m_window = new Window(800, 600, "Papuman Engine");
+	m_window = new Window(1000, 700, "Papuman Engine");
 	if (!m_window) {
 		ERROR("BaseApp", "initialize", "Error on window creation, var is null");
 		return false;
@@ -31,10 +33,10 @@ BaseApp::initialize() {
 		// Establecer posición, rotación y escala desde Transform
 		Track->getComponent<Transform>()->setPosition(sf::Vector2f(0.0f, 0.0f));
 		Track->getComponent<Transform>()->setRotation(sf::Vector2f(0.0f, 0.0f));
-		Track->getComponent<Transform>()->setScale(sf::Vector2f(11.0f, 12.0f));
+		Track->getComponent<Transform>()->setScale(sf::Vector2f(10.0f, 12.0f));
 
 		
-		if (!texture.loadFromFile("darkhec.png")) {
+		if (!texture.loadFromFile("yonded.png")) {
 			std::cout << "Error de carga de textura" << std::endl;
 			return -1; // Manejar error de carga
 		}
@@ -48,16 +50,21 @@ BaseApp::initialize() {
 		//Circle->getComponent<ShapeFactory>()->setFillColor(sf::Color::Blue);
 
 		// Establecer posición, rotación y escala desde Transform
-		Circle->getComponent<Transform>()->setPosition(sf::Vector2f(200.0f, 200.0f));
+		Circle->getComponent<Transform>()->setPosition(sf::Vector2f(80.0f, 350.0f));
 		Circle->getComponent<Transform>()->setRotation(sf::Vector2f(0.0f, 0.0f));
 		Circle->getComponent<Transform>()->setScale(sf::Vector2f(1.0f, 1.0f));
+		if (!DamBolaTxt.loadFromFile("dambola.png")) {
+			std::cout << "Error de carga" << std::endl;
+			return -1;
+		}
+		Circle->getComponent<ShapeFactory>()->getShape()->setTexture(&DamBolaTxt);
 	}
 
 	// Triangle Actor
 	Triangle = EngineUtilities::MakeShared<Actor>("Triangle");
 	if (!Triangle.isNull()) {
 		Triangle->getComponent<ShapeFactory>()->createShape(ShapeType::TRIANGLE);
-		Triangle->getComponent<Transform>()->setPosition(sf::Vector2f(200.0f, 200.0f));
+		Triangle->getComponent<Transform>()->setPosition(sf::Vector2f(0.0f, 0.0f));
 		Triangle->getComponent<Transform>()->setRotation(sf::Vector2f(0.0f, 0.0f));
 		Triangle->getComponent<Transform>()->setScale(sf::Vector2f(1.0f, 1.0f));
 	}
@@ -100,10 +107,10 @@ BaseApp::render() {
 		Triangle->render(*m_window);
 	}
 
-	ImGui::Begin("Hello, world!");
-	ImGui::Text("This is a simple example.");
-	ImGui::Image(texture);
-	ImGui::End();
+	// Mostrar el render en ImGui
+	m_window->renderToTexture();  // Finaliza el render a la textura
+	m_window->showInImGui();      // Muestra la textura en ImGui
+
 
 	m_window->render();
 	m_window->display();
@@ -115,6 +122,7 @@ BaseApp::cleanup() {
 	m_window->destroy();
 	delete m_window;
 }
+
 
 void
 BaseApp::MoveCircle(float deltaTime, EngineUtilities::TSharedPointer<Actor> circle) {

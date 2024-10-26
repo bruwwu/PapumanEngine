@@ -177,6 +177,7 @@
     <ClCompile Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui_widgets.cpp" />
     <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\BaseApp.cpp" />
+    <ClCompile Include="src\GUI.cpp" />
     <ClCompile Include="src\papumanEngine.cpp" />
     <ClCompile Include="src\ShapeFactory.cpp" />
     <ClCompile Include="src\Window.cpp" />
@@ -196,6 +197,7 @@
     <ClInclude Include="incl\BaseApp.h" />
     <ClInclude Include="incl\Component.h" />
     <ClInclude Include="incl\Entity.h" />
+    <ClInclude Include="incl\GUI.h" />
     <ClInclude Include="incl\Memory\TSharedPointer.h" />
     <ClInclude Include="incl\Memory\TStaticPtr.h" />
     <ClInclude Include="incl\Memory\TUniquePtr.h" />

@@ -12,6 +12,10 @@ Window::Window(int width, int height, const std::string& title) {
 
 	// Initalize the ImGui Resource
 	ImGui::SFML::Init(*m_window);
+
+	if (!m_renderTexture.create(width, height)) {
+		ERROR("Window", "RenderTexture", "CHECK CREATION")
+	}
 }
 
 Window::~Window() {
@@ -35,6 +39,7 @@ Window::handleEvents() {
 			unsigned int height = event.size.height;
 
 			m_view = m_window->getView();
+			m_renderTexture.create(width, height);
 			m_view.setSize(static_cast<float>(width), static_cast<float>(height));
 			m_window->setView(m_view);
 			break;
@@ -75,12 +80,31 @@ Window::isOpen() const {
 
 void
 Window::draw(const sf::Drawable& drawable) {
-	if (m_window != nullptr) {
+	/*if (m_window != nullptr) {
 		m_window->draw(drawable);
 	}
 	else {
 		ERROR("Window", "draw", "CHECK FOR WINDOW POINTER DATA");
+	}*/
+
+	if (m_renderTexture.getSize().x > 0 && m_renderTexture.getSize().y > 0) {
+		m_renderTexture.draw(drawable);
 	}
+}
+void
+Window::renderToTexture() {
+	// Después de renderizar todo lo que quieras en la textura
+	m_renderTexture.display();
+}
+void
+Window::showInImGui() {
+	const sf::Texture& texture = m_renderTexture.getTexture();
+	// Obtener el tamaño de la textura
+	ImVec2 size(texture.getSize().x, texture.getSize().y);
+	// Renderizar la textura en ImGui con las coordenadas UV invertidas en el eje Y
+	ImGui::Begin("Scene");
+	ImGui::Image((void*)(intptr_t)texture.getNativeHandle(), size, ImVec2(0, 1), ImVec2(1, 0));
+	ImGui::End();
 }
 
 sf::RenderWindow*
@@ -105,8 +129,11 @@ Window::update() {
 
 void Window::render()
 {
+
 	ImGui::SFML::Render(*m_window);
 }
+
+
 
 void
 Window::destroy() {

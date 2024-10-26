@@ -60,6 +60,9 @@
     <ClCompile Include="..\..\ThirdParties\imgui-sfml-2.6.x\imgui-SFML.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
+    <ClCompile Include="src\GUI.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="incl\Actor.h">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="incl\Transform.h">
       <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\GUI.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
