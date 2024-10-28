@@ -59,6 +59,9 @@ public:
 		showInImGui();
 
 	void
+		GUIconsole();
+
+	void
 		renderToTexture();
 
 	// Funcion de renderizado

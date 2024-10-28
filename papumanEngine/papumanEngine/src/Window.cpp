@@ -1,11 +1,16 @@
 ﻿#include "Window.h"
+#include "Notify.h"
+#include "GUI.h"
+
 
 Window::Window(int width, int height, const std::string& title) {
+	
+	
 	m_window = new sf::RenderWindow(sf::VideoMode(width, height), title);
-
+	
 	if (!m_window) {
-		ERROR("Window", "Window", "CHECK CONSTRUCTOR");
-	}
+		ERROR("Window", "RenderTexture", "CHECK CREATION");
+	} 
 	else {
 		MESSAGE("Window", "Window", "OK");
 	}

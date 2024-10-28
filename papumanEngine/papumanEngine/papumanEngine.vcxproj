@@ -202,6 +202,7 @@
     <ClInclude Include="incl\Memory\TStaticPtr.h" />
     <ClInclude Include="incl\Memory\TUniquePtr.h" />
     <ClInclude Include="incl\Memory\TWeakPointer.h" />
+    <ClInclude Include="incl\Notify.h" />
     <ClInclude Include="incl\Prerequisites.h" />
     <ClInclude Include="incl\ShapeFactory.h" />
     <ClInclude Include="incl\Transform.h" />

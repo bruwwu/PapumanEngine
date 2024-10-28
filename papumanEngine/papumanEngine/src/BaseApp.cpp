@@ -1,7 +1,12 @@
 #include "BaseApp.h"
+#include "Notify.h"
+Notify* Notify::m_instance = nullptr;
 
 int
 BaseApp::run() {
+
+	
+
 	if (!initialize()) {
 		ERROR("BaseApp", "run", "Initializes result on a false statemente, check method validations");
 	}
@@ -12,6 +17,7 @@ BaseApp::run() {
 		update();
 		render();
 	}
+	
 
 	cleanup();
 	return 0;
@@ -19,6 +25,7 @@ BaseApp::run() {
 
 bool
 BaseApp::initialize() {
+	Notify* noti = Notify::getInstance();
 	m_window = new Window(1000, 700, "Papuman Engine");
 	if (!m_window) {
 		ERROR("BaseApp", "initialize", "Error on window creation, var is null");
@@ -53,8 +60,8 @@ BaseApp::initialize() {
 		Circle->getComponent<Transform>()->setPosition(sf::Vector2f(80.0f, 350.0f));
 		Circle->getComponent<Transform>()->setRotation(sf::Vector2f(0.0f, 0.0f));
 		Circle->getComponent<Transform>()->setScale(sf::Vector2f(1.0f, 1.0f));
-		if (!DamBolaTxt.loadFromFile("dambola.png")) {
-			std::cout << "Error de carga" << std::endl;
+		if (!DamBolaTxt.loadFromFile("dambla.png")) {
+			noti->addMessage(ConsoleTypeError::WARNING, "Error al cargar la textura");
 			return -1;
 		}
 		Circle->getComponent<ShapeFactory>()->getShape()->setTexture(&DamBolaTxt);
@@ -96,6 +103,7 @@ BaseApp::update() {
 
 void
 BaseApp::render() {
+	Notify* noti = Notify::getInstance();
 	m_window->clear();
 	if (!Track.isNull()) {
 		Track->render(*m_window);
@@ -109,11 +117,13 @@ BaseApp::render() {
 
 	// Mostrar el render en ImGui
 	m_window->renderToTexture();  // Finaliza el render a la textura
-	m_window->showInImGui();      // Muestra la textura en ImGui
-
+	m_window->showInImGui();  
+	m_GUI.inConsoleMessage(noti->showNotification());// Muestra la textura en ImGui
 
 	m_window->render();
 	m_window->display();
+
+
 
 }
 

@@ -1,22 +1,53 @@
-#include "GUI.H"
+#include "GUI.h"
 #include "Window.h"
 
 void 
 GUI::init() {
 	baseStyleGUI();
 }
-void GUI::update() {
 
+void 
+	GUI::update() {
+	// Implementación futura si es necesaria
 }
 
-void GUI::render() {
-	 
+void 
+	GUI::render() {
+	// Implementación futura si es necesaria
 }
 
-void GUI::destroy() {
-
+void 
+	GUI::destroy() {
+	// Implementación futura si es necesaria
 }
-void GUI::baseStyleGUI() {
+
+
+
+// Mostrar la consola en ImGui
+void
+GUI::inConsoleMessage(std::map<ConsoleTypeError, std::string> m_programMessage) {
+	ImGui::Begin("Console");
+
+	for (const auto& message : m_programMessage) {
+		switch (message.first) {
+		case ConsoleTypeError::NORMAL:
+			ImGui::TextColored(ImVec4(1, 1, 1, 1), "[NORMAL]: %s", message.second.c_str());
+			break;
+		case ConsoleTypeError::WARNING:
+			ImGui::TextColored(ImVec4(1, 1, 0, 1), "[WARNING]: %s", message.second.c_str());
+			break;
+		case ConsoleTypeError::ERROR:
+			ImGui::TextColored(ImVec4(1, 0, 0, 1), "[ERROR]: %s", message.second.c_str());
+			break;
+		}
+	}
+
+	ImGui::End();
+}
+
+void 
+	GUI::baseStyleGUI() {
+
 	ImGuiStyle& style = ImGui::GetStyle();
 	ImVec4* colors = style.Colors;
 

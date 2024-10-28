@@ -3,27 +3,29 @@
 
 class Window;
 
-class
-	GUI {
+class GUI {
 public:
-	GUI() = default;
-	~GUI() = default;
+    GUI() = default;
+    ~GUI() = default;
 
-	void
-		init();
+    void 
+        init();
 
-	void
-		update();
+    void
+        update();
 
-	void
-		render();
+    void
+        render();
 
-	void
-		destroy();
+    void 
+        destroy();
 
-	void
-		baseStyleGUI();
+    void 
+        baseStyleGUI();
+
+    // Añadir mensaje a la consola
+    void
+        inConsoleMessage(std::map<ConsoleTypeError, std::string> m_programMessage);
 
 private:
-
 };
