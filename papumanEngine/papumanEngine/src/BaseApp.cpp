@@ -53,6 +53,7 @@ BaseApp::initialize() {
 	// Triangle Actor
 	Circle = EngineUtilities::MakeShared<Actor>("Circle");
 	if (!Circle.isNull()) {
+		
 		Circle->getComponent<ShapeFactory>()->createShape(ShapeType::CIRCLE);
 		//Circle->getComponent<ShapeFactory>()->setFillColor(sf::Color::Blue);
 
@@ -61,7 +62,8 @@ BaseApp::initialize() {
 		Circle->getComponent<Transform>()->setRotation(sf::Vector2f(0.0f, 0.0f));
 		Circle->getComponent<Transform>()->setScale(sf::Vector2f(1.0f, 1.0f));
 		if (!DamBolaTxt.loadFromFile("dambla.png")) {
-			noti->addMessage(ConsoleTypeError::WARNING, "Error al cargar la textura");
+			noti->addMessage(ConsoleTypeError::WARNING, "Error al cargar la textura del actor Circle");
+			noti->addMessage(ConsoleTypeError::ERROR, "Hola profe, prueba de ERROR");
 			return -1;
 		}
 		Circle->getComponent<ShapeFactory>()->getShape()->setTexture(&DamBolaTxt);
@@ -71,7 +73,7 @@ BaseApp::initialize() {
 	Triangle = EngineUtilities::MakeShared<Actor>("Triangle");
 	if (!Triangle.isNull()) {
 		Triangle->getComponent<ShapeFactory>()->createShape(ShapeType::TRIANGLE);
-		Triangle->getComponent<Transform>()->setPosition(sf::Vector2f(0.0f, 0.0f));
+		Triangle->getComponent<Transform>()->setPosition(sf::Vector2f(80.0f, 80.0f));
 		Triangle->getComponent<Transform>()->setRotation(sf::Vector2f(0.0f, 0.0f));
 		Triangle->getComponent<Transform>()->setScale(sf::Vector2f(1.0f, 1.0f));
 	}
@@ -82,6 +84,7 @@ BaseApp::initialize() {
 void
 BaseApp::update() {
 	// Update window method
+	Notify* noti = Notify::getInstance();
 	m_window->update();
 
 	// Mouse Position
@@ -91,6 +94,7 @@ BaseApp::update() {
 
 	if (!Track.isNull()) {
 		Track->update(m_window->deltaTime.asSeconds());
+		
 	}
 	if (!Triangle.isNull()) {
 		Triangle->update(m_window->deltaTime.asSeconds());
@@ -118,7 +122,7 @@ BaseApp::render() {
 	// Mostrar el render en ImGui
 	m_window->renderToTexture();  // Finaliza el render a la textura
 	m_window->showInImGui();  
-	m_GUI.inConsoleMessage(noti->showNotification());// Muestra la textura en ImGui
+	m_GUI.inConsoleMessage(noti->showNotifications());// Muestra la textura en ImGui
 
 	m_window->render();
 	m_window->display();
@@ -136,6 +140,7 @@ BaseApp::cleanup() {
 
 void
 BaseApp::MoveCircle(float deltaTime, EngineUtilities::TSharedPointer<Actor> circle) {
+	
 	// Verificar si el Circle es nulo
 	if (!circle || circle.isNull()) {
 		return;
@@ -160,6 +165,9 @@ BaseApp::MoveCircle(float deltaTime, EngineUtilities::TSharedPointer<Actor> circ
 	float distanceToTarget = std::sqrt(std::pow(targetPos.x - currentPos.x, 2) + std::pow(targetPos.y - currentPos.y, 2));
 
 	if (distanceToTarget < 10.0f) { // Umbral para considerar que ha llegado
+
 		currentWaypoint = (currentWaypoint + 1) % waypoints.size(); // Ciclar a través de los puntos
+		
+
 	}
 }

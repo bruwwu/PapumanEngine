@@ -4,16 +4,9 @@
 
 class Notify {
 public:
-    // Constructor privado para evitar instanciaci?n directa
-    Notify() {};
-
-    // M?todo est?tico para obtener la instancia ?nica del RegistroActividad
-    static
-        Notify* getInstance() {
-        if (m_instance != nullptr) {
-            return m_instance;
-        }
-        else {
+    // Método estático para obtener la instancia única de Notify
+    static Notify* getInstance() {
+        if (m_instance == nullptr) {
             m_instance = new Notify;
         }
         return m_instance;
@@ -22,29 +15,30 @@ public:
     // Destructor por defecto
     ~Notify() = default;
 
-    // M?todo para registrar una actividad en el registro
-    void
-        addMessage(ConsoleTypeError msgType, const std::string& _msg) {
-        m_programMessage.insert(make_pair(msgType, _msg));
+    // Método para agregar un mensaje al registro
+    void addMessage(ConsoleTypeError code, const std::string& message) {
+        m_programMessage[code].push_back(message); // Añadir al vector de mensajes para el tipo de error
     }
 
-    void
-        notify(ConsoleTypeError msgType, const std::string& _msg) {
 
-        GUI* gui;
-        gui->inConsoleMessage(m_programMessage);
+
+    // Método para mostrar todas las notificaciones
+    std::map<ConsoleTypeError, std::vector<std::string>> showNotifications() const {
+        return m_programMessage;  // Devuelve todas las notificaciones agrupadas por tipo
     }
 
-    // M?todo para obtener y mostrar las mensajes registrados
-    /*void
-    getMessage() {
+    // Método de log (actualmente vacío, puedes implementarlo)
+    /*void Log(const std::string& message) {
+        ConsoleTypeError code = ConsoleTypeError::INFO;
+        m_programMessage[code].push_back(message);
     }*/
 
-    std::map<ConsoleTypeError, std::string> showNotification() {
-        return m_programMessage;
-    }
-
 private:
-    static Notify* m_instance; // Instancia Unica
-    std::map<ConsoleTypeError, std::string> m_programMessage; // Mapa para almacenar las actividades registradas
+    // Constructor privado para evitar instanciación directa
+    Notify() {}
+
+    static Notify* m_instance; // Instancia única
+
+    // Mapa para almacenar los mensajes clasificados por tipo de error
+    std::map<ConsoleTypeError, std::vector<std::string>> m_programMessage;
 };

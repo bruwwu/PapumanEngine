@@ -29,7 +29,8 @@ enum ShapeType {
 enum ConsoleTypeError {
     NORMAL = 0,
     WARNING = 1,
-    ERROR = 2
+    ERROR = 2,
+    INFO = 3
 };
 
 // MACRO for safe release of resources

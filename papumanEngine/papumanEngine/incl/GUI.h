@@ -24,8 +24,8 @@ public:
         baseStyleGUI();
 
     // Añadir mensaje a la consola
-    void
-        inConsoleMessage(std::map<ConsoleTypeError, std::string> m_programMessage);
+    void 
+        inConsoleMessage(const std::map<ConsoleTypeError, std::vector<std::string>>& m_programMessage);
 
 private:
 };

@@ -1,8 +1,11 @@
 #include "Actor.h"
+#include "Notify.h"
 
 Actor::Actor(std::string actorName) {
 	// Setup Actor Name
 	m_name = actorName;
+
+	Notify* noti = Notify::getInstance();
 
 	// Setup Shape
 	EngineUtilities::TSharedPointer<ShapeFactory> shape = EngineUtilities::MakeShared<ShapeFactory>();
@@ -11,6 +14,8 @@ Actor::Actor(std::string actorName) {
 	// Setup Transform
 	EngineUtilities::TSharedPointer<Transform> transform = EngineUtilities::MakeShared<Transform>();
 	addComponent(transform);
+
+	noti->addMessage(ConsoleTypeError::NORMAL, "Damn " + m_name + " ha sido creado");
 
 	// Setup Sprite
 

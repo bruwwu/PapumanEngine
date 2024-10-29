@@ -24,21 +24,34 @@ void
 
 
 // Mostrar la consola en ImGui
-void
-GUI::inConsoleMessage(std::map<ConsoleTypeError, std::string> m_programMessage) {
+void 
+	GUI::inConsoleMessage(const std::map<ConsoleTypeError, std::vector<std::string>>& m_programMessage) {
 	ImGui::Begin("Console");
 
-	for (const auto& message : m_programMessage) {
-		switch (message.first) {
+	for (const auto& pair : m_programMessage) {
+		// Establece el color según el tipo de error y agrega el prefijo correspondiente
+		ImVec4 color;
+		std::string errorType;
+		switch (pair.first) {
 		case ConsoleTypeError::NORMAL:
-			ImGui::TextColored(ImVec4(1, 1, 1, 1), "[NORMAL]: %s", message.second.c_str());
+			color = ImVec4(1, 1, 1, 1);  // Blanco para NORMAL
+			errorType = "[NORMAL]: ";
 			break;
 		case ConsoleTypeError::WARNING:
-			ImGui::TextColored(ImVec4(1, 1, 0, 1), "[WARNING]: %s", message.second.c_str());
+			color = ImVec4(1, 1, 0, 1);  // Amarillo para WARNING
+			errorType = "[WARNING]: ";
 			break;
 		case ConsoleTypeError::ERROR:
-			ImGui::TextColored(ImVec4(1, 0, 0, 1), "[ERROR]: %s", message.second.c_str());
+			color = ImVec4(1, 0, 0, 1);  // Rojo para ERROR
+			errorType = "[ERROR]: ";
 			break;
+		}
+
+		// Recorrer cada mensaje en el vector de mensajes
+		for (const auto& message : pair.second) {
+			ImGui::PushStyleColor(ImGuiCol_Text, color);  // Establece el color
+			ImGui::Text("%s", (errorType + message).c_str());  // Muestra el tipo de error y el mensaje
+			ImGui::PopStyleColor();
 		}
 	}
 
