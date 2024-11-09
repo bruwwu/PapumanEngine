@@ -65,15 +65,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="incl\Actor.h">
-      <Filter>Archivos de encabezado\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="incl\Component.h">
-      <Filter>Archivos de encabezado\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="incl\Entity.h">
-      <Filter>Archivos de encabezado\ECS</Filter>
-    </ClInclude>
     <ClInclude Include="incl\Memory\TSharedPointer.h">
       <Filter>Archivos de encabezado\Memory</Filter>
     </ClInclude>
@@ -128,14 +119,23 @@
     <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imstb_truetype.h">
       <Filter>imgui</Filter>
     </ClInclude>
-    <ClInclude Include="incl\Transform.h">
-      <Filter>Archivos de encabezado\ECS</Filter>
-    </ClInclude>
     <ClInclude Include="incl\GUI.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="incl\Notify.h">
       <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\ECS\Actor.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\ECS\Component.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\ECS\Entity.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\ECS\Transform.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

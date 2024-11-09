@@ -193,10 +193,11 @@
     <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imstb_rectpack.h" />
     <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imstb_textedit.h" />
     <ClInclude Include="..\..\ThirdParties\imgui-sfml-2.6.x\imstb_truetype.h" />
-    <ClInclude Include="incl\Actor.h" />
     <ClInclude Include="incl\BaseApp.h" />
-    <ClInclude Include="incl\Component.h" />
-    <ClInclude Include="incl\Entity.h" />
+    <ClInclude Include="incl\ECS\Actor.h" />
+    <ClInclude Include="incl\ECS\Component.h" />
+    <ClInclude Include="incl\ECS\Entity.h" />
+    <ClInclude Include="incl\ECS\Transform.h" />
     <ClInclude Include="incl\GUI.h" />
     <ClInclude Include="incl\Memory\TSharedPointer.h" />
     <ClInclude Include="incl\Memory\TStaticPtr.h" />
@@ -205,7 +206,6 @@
     <ClInclude Include="incl\Notify.h" />
     <ClInclude Include="incl\Prerequisites.h" />
     <ClInclude Include="incl\ShapeFactory.h" />
-    <ClInclude Include="incl\Transform.h" />
     <ClInclude Include="incl\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

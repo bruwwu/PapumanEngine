@@ -1,4 +1,4 @@
-#include "Actor.h"
+#include "ECS\Actor.h"
 #include "Notify.h"
 
 Actor::Actor(std::string actorName) {
