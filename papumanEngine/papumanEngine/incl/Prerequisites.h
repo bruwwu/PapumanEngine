@@ -25,6 +25,7 @@ enum ShapeType {
     CIRCLE = 1,
     RECTANGLE = 2,
     TRIANGLE = 3,
+    GENERIC = 4
 };
 enum ConsoleTypeError {
     NORMAL = 0,

@@ -95,6 +95,7 @@ Window::draw(const sf::Drawable& drawable) {
 	if (m_renderTexture.getSize().x > 0 && m_renderTexture.getSize().y > 0) {
 		m_renderTexture.draw(drawable);
 	}
+
 }
 void
 Window::renderToTexture() {

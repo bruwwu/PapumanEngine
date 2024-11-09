@@ -28,6 +28,7 @@ ShapeFactory::createShape(ShapeType shapeType) {
 	default:
 		return nullptr;
 	}
+	return nullptr;
 }
 
 void

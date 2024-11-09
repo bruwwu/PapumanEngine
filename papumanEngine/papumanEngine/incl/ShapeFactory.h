@@ -41,7 +41,8 @@ public:
 		getShape() {
 		return m_shape;
 	}
-private:
+private: 
+
 	sf::Shape* m_shape;
 	ShapeType m_shapeType;
 };

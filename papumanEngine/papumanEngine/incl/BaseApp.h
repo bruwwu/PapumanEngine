@@ -37,6 +37,9 @@ public:
 
 private:
 
+	//Vector de actores
+	std::vector<EngineUtilities::TSharedPointer <Actor>> m_actors;
+
 
 	Window* m_window;
 	EngineUtilities::TSharedPointer<Actor> Triangle;

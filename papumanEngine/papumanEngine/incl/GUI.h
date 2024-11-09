@@ -1,5 +1,7 @@
 #pragma once
 #include "Prerequisites.h"
+#include "Actor.h"
+#include "ShapeFactory.h"
 
 class Window;
 
@@ -15,10 +17,13 @@ public:
         update();
 
     void
-        render();
+        render(Window& window);
 
     void 
         destroy();
+
+    void
+        Inspector(const std::vector<EngineUtilities::TSharedPointer<Actor>>& m_actors);
 
     void 
         baseStyleGUI();
@@ -26,6 +31,12 @@ public:
     // Añadir mensaje a la consola
     void 
         inConsoleMessage(const std::map<ConsoleTypeError, std::vector<std::string>>& m_programMessage);
+   
+    void
+        spawnShape(std::vector<EngineUtilities::TSharedPointer<Actor>>& m_actors);
 
 private:
+    //Vector de actores
+    std::vector<EngineUtilities::TSharedPointer <Actor>> m_actors;
+    EngineUtilities::TSharedPointer<Actor> picol;
 };

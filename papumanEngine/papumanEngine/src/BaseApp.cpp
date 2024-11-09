@@ -1,5 +1,6 @@
 #include "BaseApp.h"
 #include "Notify.h"
+
 Notify* Notify::m_instance = nullptr;
 
 int
@@ -26,7 +27,7 @@ BaseApp::run() {
 bool
 BaseApp::initialize() {
 	Notify* noti = Notify::getInstance();
-	m_window = new Window(1000, 700, "Papuman Engine");
+	m_window = new Window(1920, 1080, "Papuman Engine");
 	if (!m_window) {
 		ERROR("BaseApp", "initialize", "Error on window creation, var is null");
 		return false;
@@ -42,12 +43,14 @@ BaseApp::initialize() {
 		Track->getComponent<Transform>()->setRotation(sf::Vector2f(0.0f, 0.0f));
 		Track->getComponent<Transform>()->setScale(sf::Vector2f(10.0f, 12.0f));
 
+		m_actors.push_back(Track);
 		
 		if (!texture.loadFromFile("yonded.png")) {
 			std::cout << "Error de carga de textura" << std::endl;
 			return -1; // Manejar error de carga
 		}
 		Track->getComponent<ShapeFactory>()->getShape()->setTexture(&texture);
+		
 	}
 
 	// Triangle Actor
@@ -61,24 +64,29 @@ BaseApp::initialize() {
 		Circle->getComponent<Transform>()->setPosition(sf::Vector2f(80.0f, 350.0f));
 		Circle->getComponent<Transform>()->setRotation(sf::Vector2f(0.0f, 0.0f));
 		Circle->getComponent<Transform>()->setScale(sf::Vector2f(1.0f, 1.0f));
+		m_actors.push_back(Circle);
 		if (!DamBolaTxt.loadFromFile("dambla.png")) {
 			noti->addMessage(ConsoleTypeError::WARNING, "Error al cargar la textura del actor Circle");
 			noti->addMessage(ConsoleTypeError::ERROR, "Hola profe, prueba de ERROR");
 			return -1;
 		}
 		Circle->getComponent<ShapeFactory>()->getShape()->setTexture(&DamBolaTxt);
+
+		
 	}
 
 	// Triangle Actor
 	Triangle = EngineUtilities::MakeShared<Actor>("Triangle");
 	if (!Triangle.isNull()) {
 		Triangle->getComponent<ShapeFactory>()->createShape(ShapeType::TRIANGLE);
-		Triangle->getComponent<Transform>()->setPosition(sf::Vector2f(80.0f, 80.0f));
+		Triangle->getComponent<Transform>()->setPosition(sf::Vector2f(200.0f, 200.0f));
 		Triangle->getComponent<Transform>()->setRotation(sf::Vector2f(0.0f, 0.0f));
 		Triangle->getComponent<Transform>()->setScale(sf::Vector2f(1.0f, 1.0f));
 	}
+	m_actors.push_back(Triangle); //Se guarda el actor en m_actors
 
 	return true;
+
 }
 
 void
@@ -92,15 +100,12 @@ BaseApp::update() {
 	sf::Vector2f mousePosF(static_cast<float>(mousePosition.x),
 		static_cast<float>(mousePosition.y));
 
-	if (!Track.isNull()) {
-		Track->update(m_window->deltaTime.asSeconds());
-		
-	}
-	if (!Triangle.isNull()) {
-		Triangle->update(m_window->deltaTime.asSeconds());
+	for (auto & actor : m_actors) {
+		if (!actor.isNull()) {
+			actor->update(m_window->deltaTime.asSeconds());
+		}
 	}
 	if (!Circle.isNull()) {
-		Circle->update(m_window->deltaTime.asSeconds());
 		MoveCircle(m_window->deltaTime.asSeconds(), Circle);
 	}
 }
@@ -109,20 +114,26 @@ void
 BaseApp::render() {
 	Notify* noti = Notify::getInstance();
 	m_window->clear();
-	if (!Track.isNull()) {
-		Track->render(*m_window);
+
+	// Update the actors
+	for (auto& actor : m_actors) {
+		if (!actor.isNull()) {
+			actor->render(*m_window);
+		}
 	}
-	if (!Circle.isNull()) {
-		Circle->render(*m_window);
-	}
-	if (!Triangle.isNull()) {
-		Triangle->render(*m_window);
-	}
+
+	EngineUtilities::TSharedPointer<Actor> picol;
+
 
 	// Mostrar el render en ImGui
 	m_window->renderToTexture();  // Finaliza el render a la textura
 	m_window->showInImGui();  
 	m_GUI.inConsoleMessage(noti->showNotifications());// Muestra la textura en ImGui
+
+	m_GUI.Inspector(m_actors);
+
+	m_GUI.spawnShape(m_actors);
+
 
 	m_window->render();
 	m_window->display();

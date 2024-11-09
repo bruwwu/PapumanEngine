@@ -30,7 +30,8 @@ public:
     template <typename T>
     EngineUtilities::TSharedPointer<T>
         getComponent();
-private:
+
+    //Se pasó a publico
     std::string m_name = "Actor"; ///< Nombre del actor.
 };
 
