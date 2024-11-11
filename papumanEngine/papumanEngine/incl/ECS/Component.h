@@ -32,14 +32,16 @@ public:
      *
      * @param type Tipo de componente que se está creando.
      */
-    Component(const ComponentType type) : m_type(type) {}
+    Component
+        (const ComponentType type) : m_type(type) {}
 
     /**
      * @brief Destructor virtual.
      *
      * @note Este destructor es virtual para permitir la correcta destrucción de clases derivadas.
      */
-    virtual ~Component() = default;
+    virtual 
+        ~Component() = default;
 
     /**
      * @brief Método virtual puro para actualizar el componente.
@@ -48,7 +50,8 @@ public:
      *
      * @note Este método debe ser implementado por las clases derivadas para definir su lógica de actualización.
      */
-    virtual void update(float deltatime) = 0;
+    virtual void 
+        update(float deltatime) = 0;
 
     /**
      * @brief Método virtual puro para renderizar el componente.
@@ -57,14 +60,16 @@ public:
      *
      * @note Este método debe ser implementado por las clases derivadas para definir su lógica de renderizado.
      */
-    virtual void render(Window window) = 0;
+    virtual void 
+        render(Window window) = 0;
 
     /**
      * @brief Obtiene el tipo del componente.
      *
      * @return El tipo del componente (ComponentType).
      */
-    ComponentType getType() const { return m_type; }
+    ComponentType 
+        getType() const { return m_type; }
 
 protected:
     ComponentType m_type; /**< Tipo de componente */

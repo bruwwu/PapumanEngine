@@ -25,21 +25,27 @@ public:
     ~BaseApp() = default;
 
 
-    int run();
+    int 
+        run();
 
 
-    bool initialize();
+    bool 
+        initialize();
 
 
-    void update();
+    void 
+        update();
 
  
-    void render();
+    void 
+        render();
 
 
-    void cleanup();
+    void 
+        cleanup();
 
-    void MoveCircle(float deltaTime, EngineUtilities::TSharedPointer<Actor> circle);
+    void 
+        MoveCircle(float deltaTime, EngineUtilities::TSharedPointer<Actor> circle);
 
 private:
     /**

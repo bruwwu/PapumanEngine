@@ -8,7 +8,8 @@ ShapeFactory shapeFactory;
 /**
  * @brief Inicializa la GUI aplicando el estilo base.
  */
-void GUI::init() {
+void 
+    GUI::init() {
     baseStyleGUI();
 }
 
@@ -17,7 +18,8 @@ void GUI::init() {
  *
  * @note Este método está pensado para implementaciones futuras si se requiere actualizar elementos de la interfaz.
  */
-void GUI::update() {
+void 
+    GUI::update() {
     // Implementación futura si es necesaria
 }
 
@@ -28,7 +30,8 @@ void GUI::update() {
  *
  * @note Este método está diseñado para renderizar la interfaz gráfica, pero aún no tiene implementación.
  */
-void GUI::render(Window& window) {
+void 
+    GUI::render(Window& window) {
     // Implementación futura si es necesaria
 }
 
@@ -37,7 +40,8 @@ void GUI::render(Window& window) {
  *
  * @note Este método está diseñado para implementaciones futuras si es necesario liberar recursos.
  */
-void GUI::destroy() {
+void 
+    GUI::destroy() {
     // Implementación futura si es necesaria
 }
 
@@ -46,7 +50,8 @@ void GUI::destroy() {
  *
  * @param m_actors Lista de actores en la escena para su visualización y edición.
  */
-void GUI::Inspector(const std::vector<EngineUtilities::TSharedPointer<Actor>>& m_actors) {
+void 
+    GUI::Inspector(const std::vector<EngineUtilities::TSharedPointer<Actor>>& m_actors) {
     static int selectedActorIndex = -1; // Para llevar el seguimiento del actor seleccionado
 
     ImGui::Begin("Inspector");
@@ -101,7 +106,8 @@ void GUI::Inspector(const std::vector<EngineUtilities::TSharedPointer<Actor>>& m
  *
  * @param m_actors Lista donde se almacenan los actores creados.
  */
-void GUI::spawnShape(std::vector<EngineUtilities::TSharedPointer<Actor>>& m_actors) {
+void 
+    GUI::spawnShape(std::vector<EngineUtilities::TSharedPointer<Actor>>& m_actors) {
     static ShapeType selectedShape = ShapeType::EMPTY;
     static ImVec4 color = ImVec4(1, 1, 1, 1);
     static sf::Vector2f position(0.0f, 0.0f);
@@ -164,7 +170,8 @@ void GUI::spawnShape(std::vector<EngineUtilities::TSharedPointer<Actor>>& m_acto
  *
  * @param m_programMessage Un mapa que contiene los mensajes de consola clasificados por tipo de error.
  */
-void GUI::inConsoleMessage(const std::map<ConsoleTypeError, std::vector<std::string>>& m_programMessage) {
+void 
+    GUI::inConsoleMessage(const std::map<ConsoleTypeError, std::vector<std::string>>& m_programMessage) {
     ImGui::Begin("Console");
 
     for (const auto& pair : m_programMessage) {
@@ -198,7 +205,8 @@ void GUI::inConsoleMessage(const std::map<ConsoleTypeError, std::vector<std::str
 /**
  * @brief Establece el estilo base de la GUI, incluyendo colores y bordes.
  */
-void GUI::baseStyleGUI() {
+void 
+    GUI::baseStyleGUI() {
     ImGuiStyle& style = ImGui::GetStyle();
     ImVec4* colors = style.Colors;
 

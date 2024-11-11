@@ -40,8 +40,9 @@ public:
      *
      * @note Este método clasifica los mensajes por tipo de error y los almacena en un mapa.
      */
-    void addMessage(ConsoleTypeError code, const std::string& message) {
-        m_programMessage[code].push_back(message); // Añadir al vector de mensajes para el tipo de error
+    void 
+        addMessage(ConsoleTypeError code, const std::string& message) {
+            m_programMessage[code].push_back(message); // Añadir al vector de mensajes para el tipo de error
     }
 
     /**
@@ -51,8 +52,9 @@ public:
      *
      * @note Este método devuelve todas las notificaciones almacenadas en el objeto Notify.
      */
-    std::map<ConsoleTypeError, std::vector<std::string>> showNotifications() const {
-        return m_programMessage;  // Devuelve todas las notificaciones agrupadas por tipo
+    std::map<ConsoleTypeError, std::vector<std::string>> 
+        showNotifications() const {
+            return m_programMessage;  // Devuelve todas las notificaciones agrupadas por tipo
     }
 
     // Método de log (actualmente vacío)
@@ -69,7 +71,8 @@ private:
      */
     Notify() {}
 
-    static Notify* m_instance; // Instancia única de Notify
+    static
+        Notify* m_instance; // Instancia única de Notify
 
     /**
      * @brief Mapa para almacenar los mensajes clasificados por tipo de error.

@@ -22,7 +22,7 @@ Actor::Actor(std::string actorName) {
 }
 
 void
-Actor::update(float deltaTime) {
+	Actor::update(float deltaTime) {
 	auto transform = getComponent<Transform>();
 	auto shape = getComponent<ShapeFactory>();
 
@@ -33,7 +33,8 @@ Actor::update(float deltaTime) {
 	}
 }
 
-void Actor::render(Window& window)
+void 
+	Actor::render(Window& window)
 {
 	for (unsigned int i = 0; i < components.size(); i++) {
 		if (components[i].dynamic_pointer_cast<ShapeFactory>()) {
@@ -42,6 +43,7 @@ void Actor::render(Window& window)
 	}
 }
 
-void Actor::destroy()
+void 
+	Actor::destroy()
 {
 }

@@ -27,7 +27,8 @@ public:
      *
      * @note Este método debe ser implementado por las clases derivadas para definir la lógica de actualización específica.
      */
-    virtual void update(float deltaTime) = 0;
+    virtual void 
+            update(float deltaTime) = 0;
 
     /**
      * @brief Método para renderizar la entidad en la ventana.
@@ -36,7 +37,8 @@ public:
      *
      * @note Este método debe ser implementado por las clases derivadas para definir la lógica de renderizado específica.
      */
-    virtual void render(Window& window) = 0;
+    virtual void 
+            render(Window& window) = 0;
 
     /**
      * @brief Método para agregar un componente a la entidad.

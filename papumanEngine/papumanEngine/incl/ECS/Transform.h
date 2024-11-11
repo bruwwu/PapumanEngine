@@ -19,24 +19,28 @@ public:
     /**
      * @brief Destructor virtual de Transform.
      */
-    virtual ~Transform() = default;
+    virtual
+            ~Transform() = default;
 
     /**
      * @brief Actualiza el componente de transformación.
      * @param deltaTime El tiempo transcurrido desde la última actualización.
      */
-    void update(float deltaTime) override {}
+    void 
+            update(float deltaTime) override {}
 
     /**
      * @brief Renderiza el componente de transformación.
      * @param window La ventana donde se renderiza el componente.
      */
-    void render(Window window) override {}
+    void 
+        render(Window window) override {}
 
     /**
      * @brief Destruye el componente de transformación.
      */
-    void destroy() {};
+    void 
+        destroy() {};
 
     /**
      * @brief Método Seek que permite que el objeto se mueva hacia una posición objetivo.
@@ -45,7 +49,8 @@ public:
      * @param deltaTime El tiempo transcurrido desde la última actualización.
      * @param range La distancia mínima al objetivo a la cual el objeto se detendrá.
      */
-    void Seek(const sf::Vector2f& targetPosition, float speed, float deltaTime, float range) {
+    void 
+        Seek(const sf::Vector2f& targetPosition, float speed, float deltaTime, float range) {
         sf::Vector2f direction = targetPosition - position;
         float length = std::sqrt(direction.x * direction.x + direction.y * direction.y);
 
@@ -59,8 +64,9 @@ public:
      * @brief Establece la posición del objeto.
      * @param _position La nueva posición del objeto.
      */
-    void setPosition(const sf::Vector2f& _position) {
-        position = _position;
+    void 
+        setPosition(const sf::Vector2f& _position) {
+            position = _position;
     }
 
     /**
