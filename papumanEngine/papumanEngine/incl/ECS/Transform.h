@@ -42,6 +42,13 @@ public:
     void 
         destroy() {};
 
+    void
+        setTransform(const Vector2& pos, const Vector2& rot, const Vector2& scl) {
+        position = pos;
+        rotation = rot;
+        scale = scl;
+    }
+
     /**
      * @brief Método Seek que permite que el objeto se mueva hacia una posición objetivo.
      * @param targetPosition La posición objetivo a la que el objeto se desplazará.
@@ -49,9 +56,12 @@ public:
      * @param deltaTime El tiempo transcurrido desde la última actualización.
      * @param range La distancia mínima al objetivo a la cual el objeto se detendrá.
      */
-    void 
-        Seek(const sf::Vector2f& targetPosition, float speed, float deltaTime, float range) {
-        sf::Vector2f direction = targetPosition - position;
+    void
+        Seek(const Vector2& targetPosition,
+            float speed,
+            float deltaTime,
+            float range) {
+        Vector2 direction = (targetPosition)-position;
         float length = std::sqrt(direction.x * direction.x + direction.y * direction.y);
 
         if (length > range) {
@@ -65,7 +75,7 @@ public:
      * @param _position La nueva posición del objeto.
      */
     void 
-        setPosition(const sf::Vector2f& _position) {
+        setPosition(const Vector2 _position) {
             position = _position;
     }
 
@@ -73,7 +83,7 @@ public:
      * @brief Establece la rotación del objeto.
      * @param _rotation La nueva rotación del objeto.
      */
-    void setRotation(const sf::Vector2f& _rotation) {
+    void setRotation(const Vector2 _rotation) {
         rotation = _rotation;
     }
 
@@ -81,7 +91,7 @@ public:
      * @brief Establece la escala del objeto.
      * @param _scale La nueva escala del objeto.
      */
-    void setScale(const sf::Vector2f& _scale) {
+    void setScale(const Vector2 _scale) {
         scale = _scale;
     }
 
@@ -89,7 +99,7 @@ public:
      * @brief Obtiene la posición del objeto.
      * @return Una referencia a la posición del objeto.
      */
-    sf::Vector2f& getPosition() {
+    Vector2 getPosition() {
         return position;
     }
 
@@ -97,7 +107,7 @@ public:
      * @brief Obtiene la rotación del objeto.
      * @return Una referencia a la rotación del objeto.
      */
-    sf::Vector2f& getRotation() {
+    Vector2 getRotation() {
         return rotation;
     }
 
@@ -105,12 +115,12 @@ public:
      * @brief Obtiene la escala del objeto.
      * @return Una referencia a la escala del objeto.
      */
-    sf::Vector2f& getScale() {
+    Vector2 getScale() {
         return scale;
     }
 
 private:
-    sf::Vector2f position;  ///< Posición del objeto
-    sf::Vector2f rotation;  ///< Rotación del objeto
-    sf::Vector2f scale;     ///< Escala del objeto
+    Vector2 position;  ///< Posición del objeto
+    Vector2 rotation;  ///< Rotación del objeto
+    Vector2 scale;     ///< Escala del objeto
 };

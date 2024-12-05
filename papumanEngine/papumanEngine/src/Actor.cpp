@@ -1,5 +1,5 @@
 #include "ECS\Actor.h"
-#include "Notify.h"
+#include "Services\Notify.h"
 
 Actor::Actor(std::string actorName) {
 	// Setup Actor Name

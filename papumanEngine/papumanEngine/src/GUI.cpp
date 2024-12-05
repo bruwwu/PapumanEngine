@@ -77,11 +77,11 @@ void
             ImGui::Text("Propiedades del Actor seleccionado:");
 
             // Posición y Escala
-            sf::Vector2f position = selectedActor->getComponent<Transform>()->getPosition();
+            Vector2 position = selectedActor->getComponent<Transform>()->getPosition();
             if (ImGui::DragFloat2("Position", reinterpret_cast<float*>(&position), 1.0f)) {
                 selectedActor->getComponent<Transform>()->setPosition(position);
             }
-            sf::Vector2f scale = selectedActor->getComponent<Transform>()->getScale();
+            Vector2 scale = selectedActor->getComponent<Transform>()->getScale();
             if (ImGui::DragFloat2("Scale", reinterpret_cast<float*>(&scale), 1.0f)) {
                 selectedActor->getComponent<Transform>()->setScale(scale);
             }
@@ -110,8 +110,8 @@ void
     GUI::spawnShape(std::vector<EngineUtilities::TSharedPointer<Actor>>& m_actors) {
     static ShapeType selectedShape = ShapeType::EMPTY;
     static ImVec4 color = ImVec4(1, 1, 1, 1);
-    static sf::Vector2f position(0.0f, 0.0f);
-    static sf::Vector2f scale(1.0f, 1.0f);
+    static Vector2 position(0.0f, 0.0f);
+    static Vector2 scale(1.0f, 1.0f);
 
     ImGui::Begin("Spawner", nullptr, ImGuiWindowFlags_MenuBar);
 
@@ -153,8 +153,8 @@ void
 
                 selectedShape = ShapeType::EMPTY;
                 color = ImVec4(1, 1, 1, 1);
-                position = sf::Vector2f(0.0f, 0.0f);
-                scale = sf::Vector2f(1.0f, 1.0f);
+                position = Vector2(0.0f, 0.0f);
+                scale = Vector2(1.0f, 1.0f);
             }
         }
     }

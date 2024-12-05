@@ -7,6 +7,7 @@
 #include <vector>
 #include <thread>
 #include <map>
+#include <unordered_map>
 
 // Third Parties
 #include <SFML/Graphics.hpp>
@@ -15,6 +16,10 @@
 //#include "TUniquePtr.h"
 #include "Memory/TWeakPointer.h"
 
+// Librería Matemática
+#include "Vectores\Vector2.h"
+#include "Vectores\MathUtility.h"
+#include "Vectores\Quaternion.h"
 // Imgui
 #include <imgui.h>
 #include <imgui-SFML.h>

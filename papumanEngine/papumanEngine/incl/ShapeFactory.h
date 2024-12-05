@@ -26,7 +26,7 @@ public:
 		setPosition(float x, float y);
 
 	void
-		setPosition(const sf::Vector2f& position);
+		setPosition(const Vector2& position);
 
 	void
 		setFillColor(const sf::Color& color);
@@ -35,7 +35,7 @@ public:
 		setRotation(float angle);
 
 	void
-		setScale(const sf::Vector2f& scl);
+		setScale(const Vector2& scl);
 
 	sf::Shape*
 		getShape() {

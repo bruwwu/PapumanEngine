@@ -9,7 +9,8 @@ enum ComponentType {
     RENDERER = 3,   /**< Componente de renderizado */
     PHYSICS = 4,    /**< Componente de física */
     AUDIOSOURCE = 5, /**< Componente de fuente de audio */
-    SHAPE = 6        /**< Componente de forma (geometría) */
+    SHAPE = 6    ,
+    TEXTURE = 7    /**< Componente de forma (geometría) */
 };
 
 /**

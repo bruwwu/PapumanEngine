@@ -73,7 +73,7 @@ private:
 
     int currentWaypoint = 0;
 
-    std::vector<sf::Vector2f> waypoints = { //Puntos para recorrido
+    std::vector<Vector2> waypoints = { //Puntos para recorrido
         {80.0f, 350.0f},
         {80.0f, 555.0f},
         {900.0f, 555.0f}, // Punto más alto

@@ -203,9 +203,15 @@
     <ClInclude Include="incl\Memory\TStaticPtr.h" />
     <ClInclude Include="incl\Memory\TUniquePtr.h" />
     <ClInclude Include="incl\Memory\TWeakPointer.h" />
-    <ClInclude Include="incl\Notify.h" />
     <ClInclude Include="incl\Prerequisites.h" />
+    <ClInclude Include="incl\Services\Notify.h" />
+    <ClInclude Include="incl\Services\ResourceManager.h" />
+    <ClInclude Include="incl\Services\Texture.h" />
     <ClInclude Include="incl\ShapeFactory.h" />
+    <ClInclude Include="incl\Vectores\MathUtility.h" />
+    <ClInclude Include="incl\Vectores\Quaternion.h" />
+    <ClInclude Include="incl\Vectores\Vector2.h" />
+    <ClInclude Include="incl\Vectores\Vector3.h" />
     <ClInclude Include="incl\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

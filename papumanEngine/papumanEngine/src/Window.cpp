@@ -1,5 +1,5 @@
 ﻿#include "Window.h"
-#include "Notify.h"
+#include "Services\Notify.h"
 #include "GUI.h"
 
 

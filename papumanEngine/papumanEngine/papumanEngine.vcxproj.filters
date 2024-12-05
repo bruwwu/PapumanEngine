@@ -25,6 +25,12 @@
     <Filter Include="imgui">
       <UniqueIdentifier>{87920c98-f10c-43c8-8540-816716bd2f09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Vectores">
+      <UniqueIdentifier>{0ee37ac0-2d69-4075-864c-79ac0a1aec00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Services">
+      <UniqueIdentifier>{a902b57d-26a4-4ab4-a799-c617fbb48385}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Actor.cpp">
@@ -122,9 +128,6 @@
     <ClInclude Include="incl\GUI.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="incl\Notify.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="incl\ECS\Actor.h">
       <Filter>Archivos de encabezado\ECS</Filter>
     </ClInclude>
@@ -136,6 +139,27 @@
     </ClInclude>
     <ClInclude Include="incl\ECS\Transform.h">
       <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\Vectores\Quaternion.h">
+      <Filter>Archivos de encabezado\Vectores</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\Vectores\Vector2.h">
+      <Filter>Archivos de encabezado\Vectores</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\Vectores\Vector3.h">
+      <Filter>Archivos de encabezado\Vectores</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\Vectores\MathUtility.h">
+      <Filter>Archivos de encabezado\Vectores</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\Services\ResourceManager.h">
+      <Filter>Archivos de encabezado\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\Services\Notify.h">
+      <Filter>Archivos de encabezado\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\Services\Texture.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
